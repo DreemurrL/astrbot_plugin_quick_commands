@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>快捷指令管理</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topline">
+      <div>
+        <span class="eyebrow">ASTRBOT · WEBUI EXTENSION</span>
+        <h1>快捷指令管理</h1>
+        <p class="muted">直接添加、修改、停用 QQ 聊天里的快捷回复指令，无需编辑 Python 或重载插件。</p>
+      </div>
+      <button class="btn primary" id="newBtn" type="button">＋ 新建指令</button>
+    </header>
+    <div class="statrow">
+      <section class="metric"><span>总指令数</span><b id="allNum">—</b></section>
+      <section class="metric"><span>已启用</span><b id="activeNum">—</b></section>
+      <section class="metric"><span>可用触发词</span><b id="aliasNum">—</b></section>
+    </div>
+    <section class="panel">
+      <div class="panelhead"><h2>已配置的快捷指令</h2><button id="refreshBtn" class="btn ghost" type="button">↻ 刷新</button></div>
+      <div id="loading" class="empty">正在连接 AstrBot 管理面板…</div>
+      <div id="rules" class="rules" hidden></div>
+      <div id="empty" class="empty" hidden>还没有规则。点击右上角的「新建指令」开始配置。<br><small>例如让 /插件 和 /功能 回复同一份插件列表。</small></div>
+    </section>
+    <p class="footnote">数据持久化保存在 AstrBot 的 <code>data/plugin_data/astrbot_plugin_quick_commands/shortcuts.json</code>。<br>去掉 / 的快捷词仅在启用该选项时生效，精确匹配关键词；请避免与日常聊天或其他插件指令冲突。</p>
+  </main>
+
+  <dialog id="editor">
+    <form method="dialog" id="form" class="editorForm">
+      <div class="dialogHeader"><h2 id="editorTitle">新建指令</h2><button id="closeBtn" class="xbtn" type="button" aria-label="关闭">×</button></div>
+      <label>主指令名 <small>（不用填写 /）</small><input id="name" required maxlength="30" placeholder="例如：插件"></label>
+      <label>其他快捷别名 <small>（逗号或换行分隔，最多 12 个）</small><input id="aliases" placeholder="例如：功能, 菜单"></label>
+      <div class="grid2">
+        <label>回复来源
+          <select id="mode"><option value="text">固定文本</option><option value="txt">TXT 文件内容</option></select>
+        </label>
+        <label class="filePicker">导入 UTF-8 TXT <small>（可选）</small><input type="file" id="file" accept=".txt,text/plain"></label>
+      </div>
+      <label>机器人回复内容 <small>（最长 16000 字，会按 1500 字分段回复）</small><textarea id="content" rows="9" required maxlength="16000" placeholder="输入要发送的消息，或上传一个 txt 文件…"></textarea></label>
+      <div class="switches">
+        <label><input id="enabled" type="checkbox" checked> 启用此指令</label>
+        <label><input id="admin" type="checkbox"> 仅 AstrBot 管理员可用</label>
+        <label><input id="args" type="checkbox"> 允许附带参数（正文可使用 {args}）</label>
+        <label><input id="noSlash" type="checkbox"> 允许省略 / 直接触发（如输入 kfc）</label>
+      </div>
+      <div id="preview" class="preview"><strong>预览</strong><div id="previewText">保存后，在 QQ 发送 /插件 触发。</div></div>
+      <div id="formError" class="error" role="alert" hidden></div>
+      <div class="dialogFooter"><button type="button" class="btn ghost" id="cancelBtn">取消</button><button type="submit" class="btn primary" id="saveBtn">保存指令</button></div>
+    </form>
+  </dialog>
+  <div id="toast" class="toast" role="status" hidden></div>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
