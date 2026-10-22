@@ -1,0 +1,8 @@
+{
+  "views": {
+    "manager": {
+      "title": "快捷指令管理",
+      "description": "在 WebUI 中添加和编辑 QQ 聊天里的 /快捷指令 与多个别名"
+    }
+  }
+}
