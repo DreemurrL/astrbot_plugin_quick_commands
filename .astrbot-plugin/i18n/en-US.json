@@ -1,0 +1,8 @@
+{
+  "views": {
+    "manager": {
+      "title": "Quick Commands",
+      "description": "Create and edit custom slash-command responses and aliases"
+    }
+  }
+}
