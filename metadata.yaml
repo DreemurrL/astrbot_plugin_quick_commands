@@ -1,0 +1,10 @@
+name: astrbot_plugin_quick_commands
+display_name: 快捷指令管理
+short_desc: 在 WebUI 中可视化创建和管理 QQ/多平台自定义快捷回复指令
+desc: 提供 WebUI 扩展功能页面，创建、编辑、停用及删除静态回复快捷指令，可选不带 / 触发；支持多个别名、TXT 导入和仅管理员使用。
+author: 自定义插件
+version: 1.0.2
+astrbot_version: ">=4.29.0,<5"
+support_platforms:
+  - qq_official
+  - aiocqhttp
