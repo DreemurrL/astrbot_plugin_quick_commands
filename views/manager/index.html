@@ -12,7 +12,7 @@
       <div>
         <span class="eyebrow">ASTRBOT · WEBUI EXTENSION</span>
         <h1>快捷指令管理</h1>
-        <p class="muted">直接添加、修改、停用 QQ 聊天里的快捷回复指令，无需编辑 Python 或重载插件。</p>
+        <p class="muted">直接添加、修改、停用 QQ 聊天里的快捷回复指令，无需编辑源代码或重载插件。</p>
       </div>
       <button class="btn primary" id="newBtn" type="button">＋ 新建指令</button>
     </header>
@@ -27,14 +27,14 @@
       <div id="rules" class="rules" hidden></div>
       <div id="empty" class="empty" hidden>还没有规则。点击右上角的「新建指令」开始配置。<br><small>例如让 /插件 和 /功能 回复同一份插件列表。</small></div>
     </section>
-    <p class="footnote">数据持久化保存在 AstrBot 的 <code>data/plugin_data/astrbot_plugin_quick_commands/shortcuts.json</code>。<br>去掉 / 的快捷词仅在启用该选项时生效，精确匹配关键词；请避免与日常聊天或其他插件指令冲突。</p>
+    <p class="footnote">数据持久化保存在 AstrBot 的 <code>data/plugin_data/astrbot_plugin_quick_commands/shortcuts.json</code>。<br>去掉 / 的快捷词仅在启用该选项时生效，精确匹配关键词；请避免与日常聊天或其他插件指令冲突。<br>GitHub：<a href="https://github.com/DreemurrL/astrbot_plugin_quick_commands" target="_blank" rel="noopener noreferrer">astrbot_plugin_quick_commands</a> · 作者：<a href="https://github.com/DreemurrL" target="_blank" rel="noopener noreferrer">DreemurrL</a></p>
   </main>
 
   <dialog id="editor">
     <form method="dialog" id="form" class="editorForm">
       <div class="dialogHeader"><h2 id="editorTitle">新建指令</h2><button id="closeBtn" class="xbtn" type="button" aria-label="关闭">×</button></div>
-      <label>主指令名 <small>（不用填写 /）</small><input id="name" required maxlength="30" placeholder="例如：插件"></label>
-      <label>其他快捷别名 <small>（逗号或换行分隔，最多 12 个）</small><input id="aliases" placeholder="例如：功能, 菜单"></label>
+      <label>主指令名 <small>（不用填写 /）</small><input id="name" required maxlength="30" placeholder="例如：问候"></label>
+      <label>其他快捷别名 <small>（逗号或换行分隔，最多 12 个）</small><input id="aliases" placeholder="例如：问号，打招呼"></label>
       <div class="grid2">
         <label>回复来源
           <select id="mode"><option value="text">固定文本</option><option value="txt">TXT 文件内容</option></select>
