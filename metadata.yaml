@@ -2,7 +2,7 @@ name: astrbot_plugin_quick_commands
 display_name: 快捷指令管理
 short_desc: 在 WebUI 中快速配置聊天快捷指令与自定义回复
 desc: 提供 AstrBot WebUI 扩展页面，可创建、编辑、停用和删除快捷指令，支持多别名、固定文本与 TXT 导入、可选免斜杠触发及管理员权限。
-version: 1.0.2
+version: 1.0.3
 author: DreemurrL
 repo: https://github.com/DreemurrL/astrbot_plugin_quick_commands
 astrbot_version: ">=4.29.0,<5"
